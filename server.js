@@ -32,17 +32,25 @@ function handleRequest(req, res){
      // Handle different routes
 
      const styles = `
-     <style>
-         body {
-             font-family: 'Arial', sans-serif;
-             max-width: 800px;
-             margin: 0 auto;
-             padding: 20px;
-             background-color: #f5f5f5;
-             color: #333;
-         }
-     </style>
- `;
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .message {
+            background: #e3f2fd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+    `;
 
 
   if (req.url === '/') {
@@ -56,11 +64,19 @@ function handleRequest(req, res){
         <li><a href="/chat">/chat</a> - Random chat message</li>
       </ul>
     `);
-  }else if (req.url === '/hello') {
-    res.end('<h2>Hello there! </h2><p>How are you today?</p>');
+  }else if (req.url === '/hello') { // //need !DOCTYPE html to run styles
+    res.end(`
+        <!DOCTYPE html>
+        <html>
+            <head>${styles}</head>
+            <body>
+                <h2>Hello there!</h2>
+                <div class="message">How are you today?</div>
+            </body>
+        </html>`);
   }
   else if (req.url === '/time') {
-    res.end(`<p>The current time is: ${new Date().toLocaleTimeString()}</p>`);
+    res.end(`<p>The current date and time: ${new Date()}</p>`);
   }
   else if (req.url === '/chat') {
     const messages = [
