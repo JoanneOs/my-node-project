@@ -40,7 +40,22 @@ function handleRequest(req, res){
         <li><a href="/chat">/chat</a> - Random chat message</li>
       </ul>
     `);
-  }else if()
+  }else if (req.url === '/hello') {
+    res.end('<h2>Hello there! </h2><p>How are you today?</p>');
+  }
+  else if (req.url === '/time') {
+    res.end(`<p>The current time is: ${new Date().toLocaleTimeString()}</p>`);
+  }
+  else if (req.url === '/chat') {
+    const messages = [
+      "What's on your mind?",
+      "Nice to see you here!",
+      "How can I help you today?",
+      "Did you know this is a simple Node server?",
+      "Try refreshing for a new message!"
+    ];
+
+
 }
 
 // Create a basic server
