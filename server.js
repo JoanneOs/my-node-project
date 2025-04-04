@@ -55,7 +55,12 @@ function handleRequest(req, res){
       "Try refreshing for a new message!"
     ];
 
-
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    res.end(`<p>${randomMessage}</p>`);
+  }
+  else {
+    res.end('<h2>404 - Page not found</h2><p>Try one of our chat routes!</p>');
+  }
 }
 
 // Create a basic server
