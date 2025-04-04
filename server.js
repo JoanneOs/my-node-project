@@ -27,7 +27,38 @@
 const http=require('http');
 
 // Create an empty function for now
-function handleRequest(){
-      // This function will handle requests later
+function handleRequest(req, res){
 
+     // Handle different routes
+  if (req.url === '/') {
+    res.end(`
+      <h1>Welcome to Simple Chat</h1>
+      <p>Try these routes:</p>
+      <ul>
+        <li><a href="/hello">/hello</a> - Get a greeting</li>
+        <li><a href="/time">/time</a> - Check current time</li>
+        <li><a href="/chat">/chat</a> - Random chat message</li>
+      </ul>
+    `);
+  }else if()
 }
+
+// Create a basic server
+const server=http.createServer(handleRequest);
+
+// Start the server
+const PORT=3000;  
+server.listen(PORT,()=>{
+    console.log(`you can run server on http://localhost:${PORT}`);
+
+});
+
+// 1️⃣ Why 3000, 5000, or 8080?
+// These are common unreserved ports for web development:
+
+// 3000 → Popular for frontend frameworks like React, Vue, and Express.js servers.
+// 5000 → Often used for backend development in Node.js, Python (Flask), etc.
+// 8080 → Another alternative to 80 (default HTTP port).
+
+//saved again
+//run: node server.js
