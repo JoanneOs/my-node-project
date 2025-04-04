@@ -28,9 +28,10 @@ const http=require('http');
 
 // Create an empty function for now
 function handleRequest(req, res){
-
+    res.setHeader('Content-Type', 'text/html');//set the Content-Type header to text/html for all responses
      // Handle different routes
   if (req.url === '/') {
+    res.statusCode=200;
     res.end(`
       <h1>Welcome to Simple Chat</h1>
       <p>Try these routes:</p>
@@ -73,7 +74,7 @@ server.listen(PORT,()=>{
 
 });
 
-// 1️⃣ Why 3000, 5000, or 8080?
+// Why 3000, 5000, or 8080?
 // These are common unreserved ports for web development:
 
 // 3000 → Popular for frontend frameworks like React, Vue, and Express.js servers.
