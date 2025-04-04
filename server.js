@@ -28,8 +28,23 @@ const http=require('http');
 
 // Create an empty function for now
 function handleRequest(req, res){
-    res.setHeader('Content-Type', 'text/html');//set the Content-Type header to text/html for all responses
+    res.setHeader('Content-Type', 'text/html');//t-Type header to text/html for all responses
      // Handle different routes
+
+     const styles = `
+     <style>
+         body {
+             font-family: 'Arial', sans-serif;
+             max-width: 800px;
+             margin: 0 auto;
+             padding: 20px;
+             background-color: #f5f5f5;
+             color: #333;
+         }
+     </style>
+ `;
+
+
   if (req.url === '/') {
     res.statusCode=200;
     res.end(`
@@ -83,3 +98,11 @@ server.listen(PORT,()=>{
 
 //saved again
 //run: node server.js
+
+// Visit:
+// http://localhost:3000 (Home)
+// http://localhost:3000/chat (Random messages)
+// http://localhost:3000/time (Live clock)
+// http://localhost:3000/oops (404 test)
+
+//maybe we can style it 
